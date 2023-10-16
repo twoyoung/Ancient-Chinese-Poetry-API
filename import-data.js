@@ -20,7 +20,7 @@ const folderPath = '/Users/yangyang/Desktop/chinese-poetry-master/quantangshi';
 
 fs.readdir(folderPath, (err, files) => {
     if (err) throw err;
-    let count = 0;
+    //let count = 0;
     files.forEach(async (file) => {
         if (path.extname(file) === '.json'){
             const filePath = path.join(folderPath, file);
@@ -29,9 +29,7 @@ fs.readdir(folderPath, (err, files) => {
 
             fileData.forEach(poetry =>  delete poetry.id);
             await Poetry.insertMany(fileData);
-            console.log('Data inserted successfully:', count, 'documents');
-
-            
+            //console.log('Data inserted successfully:', count, 'documents');      
         }
     });
 })
