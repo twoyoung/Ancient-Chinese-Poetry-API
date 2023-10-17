@@ -1,9 +1,8 @@
 const mongoose = require('mongoose');
 
-const PoetrySchema = new mongoose.Schema({
+const SongSchema = new mongoose.Schema({
     author: {
-        type: String,
-        default: '曹操'
+        type: String
     },
     paragraphs: {
         type: [String],
@@ -12,9 +11,12 @@ const PoetrySchema = new mongoose.Schema({
     title: {
         type: String
     },
+    rhythmic: {
+        type: String,
+    },
     dynasty: {
         type: String,
-        default: 'Han'
+        default: 'Qing'
     },
     tags: {
         type: [String],
@@ -34,6 +36,6 @@ const PoetrySchema = new mongoose.Schema({
     }
 });
 
-const Poetry = mongoose.model('Poetry', PoetrySchema, 'poetry');
+const Song = mongoose.model('Song', SongSchema, 'song');
 
-module.exports = Poetry;
+module.exports = Song;

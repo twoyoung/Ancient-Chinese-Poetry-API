@@ -16,11 +16,11 @@ mongoose.connect(DB, {
     dbName: 'ChinesePoetry' // Specify your desired database name here
   }).then(() => console.log('Connected to the database')).catch((error)=> console.log(error));
 
-const folderPath = '/Users/yangyang/Desktop/chinese-poetry-master/quantangshi';
+const folderPath = '/Users/yangyang/Desktop/chinese-poetry-master/曹操诗集';
 
 fs.readdir(folderPath, (err, files) => {
     if (err) throw err;
-    //let count = 0;
+    let insertedDocsCount = 0;
     files.forEach(async (file) => {
         if (path.extname(file) === '.json'){
             const filePath = path.join(folderPath, file);
@@ -28,9 +28,12 @@ fs.readdir(folderPath, (err, files) => {
             const fileData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
 
             fileData.forEach(poetry =>  delete poetry.id);
-            await Poetry.insertMany(fileData);
-            //console.log('Data inserted successfully:', count, 'documents');      
+            const insertedDocs = await Poetry.insertMany(fileData);
+            insertedDocsCount += insertedDocs.length;
+            console.log('Inserted', insertedDocsCount, 'documents successfully!');   
         }
-    });
+    });   
 })
+
+
 
