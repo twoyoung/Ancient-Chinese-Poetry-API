@@ -21,38 +21,38 @@ Different models are created based on the gerne because poetries and songs as di
 
 ## Available routes:
 ```
-/
+GET /
 ```
 get all the poetry and songs 
 
 ```
-/random
+GET /random
 ```
 get a random poetry or song from database
 
 ```
-/poems
+GET /poems
 ```
 get all poems
 
 ```
-/songs
+GET /songs
 ```
 get all songs
 
 ```
-/authors
+GET /authors
 ```
 get all authors
 
 ## Query strings can be used to filter the search results:
 
 ```
-https://dolphin-app-h86ti.ondigitalocean.app/poems?author=李白&fields=title,paragraphs&page=2
+GET https://dolphin-app-h86ti.ondigitalocean.app/poems?author=李白&fields=title,paragraphs&page=2
 
 ```
 ```
-https://dolphin-app-h86ti.ondigitalocean.app/authors?name=李清照
+GET https://dolphin-app-h86ti.ondigitalocean.app/authors?name=李清照
 ```
 Default setting is 20 items on each page, except route / 40 items on each page.
 
