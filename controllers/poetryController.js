@@ -9,9 +9,6 @@ exports.getARandomPoetryOrSong = async (req, res) => {
   const songCount = await Song.estimatedDocumentCount();
   const totalCount = poetryCount + songCount;
   const randomNum = Math.floor(Math.random() * totalCount);
-  // console.log(randomNum);
-  // console.log(poetryCount);
-  // console.log(songCount);
   let randomItem;
   if (randomNum < poetryCount){
     const randomSkip = Math.floor(Math.random() * poetryCount);
@@ -20,8 +17,6 @@ exports.getARandomPoetryOrSong = async (req, res) => {
     const randomSkip = Math.floor(Math.random() * songCount);
     randomItem = await Song.findOne().skip(randomSkip);
   }
-  // const versesCount = randomTangshi.paragraphs.length;
-  // const randomVerse = randomTangshi.paragraphs[Math.floor(Math.random() * versesCount)];
 
   res.status(200).json({
     status: "success",
@@ -32,8 +27,12 @@ exports.getARandomPoetryOrSong = async (req, res) => {
 };
 
 exports.getAllPoetryAndSongs = async (req, res) => {
-  const poetryQuery = new APIFeatures(Poetry.find(), req.query).filter().limitFields().query;
-  const songsQuery = new APIFeatures(Song.find(), req.query).filter().limitFields().query;
+  const poetryCount = await Poetry.estimatedDocumentCount();
+  const songCount = await Song.estimatedDocumentCount();
+  const totalCount = poetryCount + songCount;
+
+  const poetryQuery = new APIFeatures(Poetry.find(), req.query).filter().limitFields().paginate().query;
+  const songsQuery = new APIFeatures(Song.find(), req.query).filter().limitFields().paginate().query;
   // console.log(poetryQuery);
   // console.log(songsQuery);
 
@@ -42,15 +41,13 @@ exports.getAllPoetryAndSongs = async (req, res) => {
   // console.log('Songs Results:', results[1]);
 
   const allPoetryAndSongs = [...poetry, ...songs];
-
-  const finalData = new APIFeatures(allPoetryAndSongs, req.query).paginate().query;
   // console.log(allPoetryAndSongs.length);
 
   res.status(200).json({
     status: "success",
-    results: allPoetryAndSongs.length,
+    results: totalCount,
     data: {
-      finalData
+      allPoetryAndSongs
     },
   });
 }

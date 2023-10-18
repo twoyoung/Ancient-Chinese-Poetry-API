@@ -24,6 +24,9 @@ const AuthorSchema = new mongoose.Schema({
         type: Number,
         default: 0
     }
+},{
+    toJSON: { select: '-_id -__v'},
+    toObject: { select: '-_id -__v'}
 });
 
 const Author = mongoose.model('Author', AuthorSchema, 'author');
