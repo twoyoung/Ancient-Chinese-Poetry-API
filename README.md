@@ -57,6 +57,7 @@ GET https://dolphin-app-h86ti.ondigitalocean.app/authors?name=李清照
 Default setting is 20 items on each page, except route / 40 items on each page.
 
 ## More functions in planning:
+- Error handling for production environment
 - Add a frontend user-friendly application so that user can collect the favorite poems and songs.
 - Add a functionality to use the characters in poems and songs to generate meaningful and beautiful names.
 
