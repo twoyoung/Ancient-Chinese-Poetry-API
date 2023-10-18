@@ -48,6 +48,10 @@ get all authors
 ## Query strings can be used to filter the search results:
 example:
 ```
+https://dolphin-app-h86ti.ondigitalocean.app/random
+
+```
+```
 https://dolphin-app-h86ti.ondigitalocean.app/poems?author=李白&fields=title,paragraphs&page=2
 
 ```
