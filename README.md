@@ -2,13 +2,13 @@
 
 This is a simple restful API that user can get and search for Chinese ancient poetries.
 
-database: __MongoDB__
+- database: __MongoDB__
 
 
 the database contains 14172 authors' 311881 ancient Chinese poems and 21595 songs mainly during the period of Tang dynasty and Song dynasty.
 
 
-technical stack: __Node.js__, __ExpressJS__, __Mongoose__
+- technical stack: __Node.js__, __ExpressJS__, __Mongoose__
 
 ## A list of the models (collections):
 Different models are created based on the gerne because poetries and songs as different gernes have different structures.
