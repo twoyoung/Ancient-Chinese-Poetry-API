@@ -9,9 +9,9 @@ exports.getARandomPoetryOrSong = async (req, res) => {
   const songCount = await Song.estimatedDocumentCount();
   const totalCount = poetryCount + songCount;
   const randomNum = Math.floor(Math.random() * totalCount);
-  console.log(randomNum);
-  console.log(poetryCount);
-  console.log(songCount);
+  // console.log(randomNum);
+  // console.log(poetryCount);
+  // console.log(songCount);
   let randomItem;
   if (randomNum < poetryCount){
     const randomSkip = Math.floor(Math.random() * poetryCount);
@@ -44,7 +44,7 @@ exports.getAllPoetryAndSongs = async (req, res) => {
   const allPoetryAndSongs = [...poetry, ...songs];
 
   const finalData = new APIFeatures(allPoetryAndSongs, req.query).paginate().query;
-  console.log(allPoetryAndSongs.length);
+  // console.log(allPoetryAndSongs.length);
 
   res.status(200).json({
     status: "success",
@@ -78,7 +78,7 @@ exports.getAllSongs = async (req, res) => {
       .filter()
       .limitFields();
   const totalCount = await Song.countDocuments(features.query);
-  console.log(totalCount);
+  // console.log(totalCount);
   features.paginate();
   const finalData = await features.query;
 
@@ -96,7 +96,7 @@ exports.getAllAuthors = async (req, res) => {
      .filter()
      .limitFields();
   const totalCount = await Author.countDocuments(features.query);
-  console.log(totalCount);
+  // console.log(totalCount);
   features.paginate();
   const finalData = await features.query;
 
@@ -109,24 +109,4 @@ exports.getAllAuthors = async (req, res) => {
   });
 }
 
-
-// exports.getARandomPoetryByAuthor = async (req, res) => {
-//   const author = req.params.author;
-//   const count = await Poetry.estimatedDocumentCount({author: author});
-//   if (count === 0){
-//     return res.status(404).json({
-//       status: 'not_found',
-//       message: `No poetry found for author: ${author}`
-//     });
-//   }
-//   const randomSkip = Math.floor(Math.random() * count);
-//   const randomPoetry = await Poetry.findOne({author: author}).skip(randomSkip);
-
-//   res.status(200).json({
-//     status: "success",
-//     data: {
-//       randomPoetry
-//     },
-//   });
-// }
 
