@@ -5,9 +5,9 @@ This is a simple API that user can get Chinese ancient poetries.
 database: MongoDB
 technical stack: Node.js, ExpressJS, Mongoose
 
+## A list of the models (collections):
 Different models are created based on the gerne because poetries and songs as different gernes have different structures.
 
-## A list of the models (collections):
 - Poetry
 - Song
 - Author
