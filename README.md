@@ -1,6 +1,6 @@
 # Chinese-Poetry-API
 
-This is a simple API that user can get Chinese ancient poetries.
+This is a simple restful API that user can get and search for Chinese ancient poetries.
 
 ### database: MongoDB
 the database contains 14172 authors' 311881 ancient Chinese poems and 21595 songs mainly during the period of Tang dynasty and Song dynasty.
@@ -50,5 +50,9 @@ example:
 /authors?name=李清照
 ```
 Default setting is 20 items on each page, except route / 40 items on each page.
+
+## More functions in planning:
+- Add a frontend user-friendly application so that user can collect the favorite poems and songs.
+- Add a functionality to use the characters in poems and songs to generate meaningful and beautiful names.
 
 
