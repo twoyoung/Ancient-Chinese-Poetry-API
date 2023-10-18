@@ -2,7 +2,7 @@
 
 This is a simple restful API that user can get and search for Chinese ancient poetries.
 
-[click me to get the poems]https://dolphin-app-h86ti.ondigitalocean.app/
+[click me to get the poems](https://dolphin-app-h86ti.ondigitalocean.app/)
 
 - database: __MongoDB__
 
