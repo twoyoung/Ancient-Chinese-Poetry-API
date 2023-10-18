@@ -1,6 +1,6 @@
 # Ancient-Chinese-Poetry-API
 
-This is a simple restful API that user can get and filter for Chinese ancient poetries.
+This is a simple restful API that user can get and filter for Chinese ancient poems and songs.
 
 https://dolphin-app-h86ti.ondigitalocean.app/
 
