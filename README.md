@@ -1,4 +1,4 @@
-# Chinese-Poetry-API
+# Ancient-Chinese-Poetry-API
 
 This is a simple restful API that user can get and search for Chinese ancient poetries.
 
