@@ -18,19 +18,23 @@ Different models are created based on the gerne because poetries and songs as di
 ```
 /
 ```
-- get all the poetry and songs 
+get all the poetry and songs 
+
 ```
 /random
 ```
 get a random poetry or song from database
+
 ```
 /poems
 ```
 get all poems
+
 ```
 /songs
 ```
 get all songs
+
 ```
 /authors
 ```
