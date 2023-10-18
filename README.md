@@ -48,11 +48,11 @@ get all authors
 ## Query strings can be used to filter the search results:
 example:
 ```
-/poems?author=李白&fields=title,paragraphs&page=2
+https://dolphin-app-h86ti.ondigitalocean.app/poems?author=李白&fields=title,paragraphs&page=2
 
 ```
 ```
-/authors?name=李清照
+https://dolphin-app-h86ti.ondigitalocean.app/authors?name=李清照
 ```
 Default setting is 20 items on each page, except route / 40 items on each page.
 
