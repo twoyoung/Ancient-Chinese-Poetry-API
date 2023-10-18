@@ -15,15 +15,25 @@ Different models are created based on the gerne because poetries and songs as di
 - Author
 
 ## Available routes:
-- /
-get all the poetry and songs 
-- /random
+```
+/
+```
+- get all the poetry and songs 
+```
+/random
+```
 get a random poetry or song from database
-- /poems
+```
+/poems
+```
 get all poems
-- /songs
+```
+/songs
+```
 get all songs
-- /authors
+```
+/authors
+```
 get all authors
 
 ## Query strings can be used to filter the search results:
