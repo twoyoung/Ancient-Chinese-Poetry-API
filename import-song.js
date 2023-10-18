@@ -41,10 +41,10 @@ fs.readdir(folderPath, (err, files) => {
             //     return song;
             // });
 
-            fileData.forEach(song => song.description = poetry.desc);
+            fileData.forEach(song => song.description = song.desc);
 
-            dataWithRhythmic.forEach(poetry =>  delete poetry.id);
-            dataWithRhythmic.forEach(poetry =>  delete poetry.para);
+            dataWithRhythmic.forEach(song =>  delete song.id);
+            dataWithRhythmic.forEach(song =>  delete song.para);
             const insertedDocs = await Song.insertMany(dataWithRhythmic);
             insertedDocsCount += insertedDocs.length;
             console.log('Inserted', insertedDocsCount, 'documents successfully!');   

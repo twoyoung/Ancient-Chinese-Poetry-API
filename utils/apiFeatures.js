@@ -40,7 +40,7 @@ class APIFeatures {
             const fields = this.queryString.fields.split(',').join(' ');
             this.query = this.query.select(fields);
         } else {
-            this.query = this.query.select('-__v'); // exclude __v field
+            this.query = this.query.select('-__v -_id'); // exclude __v field
         }
 
         return this;

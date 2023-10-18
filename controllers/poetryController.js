@@ -1,63 +1,73 @@
-const Poetry = require("../models/poetryModel");
+const Poem = require("../models/poemModel");
 const Song = require("../models/songModel");
 const Author = require("../models/authorModel");
 const APIFeatures = require("../utils/apiFeatures");
 
-
-exports.getARandomPoetryOrSong = async (req, res) => {
-  const poetryCount = await Poetry.estimatedDocumentCount();
+exports.getARandomPoemOrSong = async (req, res) => {
+  const poemCount = await Poem.estimatedDocumentCount();
   const songCount = await Song.estimatedDocumentCount();
-  const totalCount = poetryCount + songCount;
+  const totalCount = poemCount + songCount;
   const randomNum = Math.floor(Math.random() * totalCount);
-  let randomItem;
-  if (randomNum < poetryCount){
-    const randomSkip = Math.floor(Math.random() * poetryCount);
-    randomItem = await Poetry.findOne().skip(randomSkip);
+  let randomPoemOrSong;
+  if (randomNum < poemCount) {
+    const randomSkip = Math.floor(Math.random() * poemCount);
+    randomPoemOrSong = await Poem.findOne().skip(randomSkip).select('-__v -_id');
   } else {
     const randomSkip = Math.floor(Math.random() * songCount);
-    randomItem = await Song.findOne().skip(randomSkip);
+    randomPoemOrSong = await Song.findOne().skip(randomSkip).select('-__v -_id');
   }
 
   res.status(200).json({
     status: "success",
     data: {
-      randomItem
+      randomPoemOrSong
     },
   });
 };
 
-exports.getAllPoetryAndSongs = async (req, res) => {
-  const poetryCount = await Poetry.estimatedDocumentCount();
-  const songCount = await Song.estimatedDocumentCount();
-  const totalCount = poetryCount + songCount;
+exports.getAllPoemsAndSongs = async (req, res) => {
+  let poemQuery = new APIFeatures(Poem.find(), req.query)
+    .filter()
+    .limitFields();
 
-  const poetryQuery = new APIFeatures(Poetry.find(), req.query).filter().limitFields().paginate().query;
-  const songsQuery = new APIFeatures(Song.find(), req.query).filter().limitFields().paginate().query;
-  // console.log(poetryQuery);
+  let songQuery = new APIFeatures(Song.find(), req.query)
+    .filter()
+    .limitFields();
+
+  const poemCount = await Poem.countDocuments(poemQuery.query);
+  const songCount = await Song.countDocuments(songQuery.query);
+  const totalCount = poemCount + songCount;
+
+  const poemResults = new APIFeatures(poemQuery.query, req.query).paginate().query;
+  const songResults = new APIFeatures(songQuery.query, req.query).paginate().query;
+  // console.log(poemQuery);
   // console.log(songsQuery);
 
-  const [poetry, songs] = await Promise.all([poetryQuery.exec(), songsQuery.exec()]);
-  // console.log('Poetry Results:', results[0]);
+  const [poems, songs] = await Promise.all([
+    poemResults.exec(),
+    songResults.exec(),
+  ]);
+  // console.log('Poem Results:', results[0]);
   // console.log('Songs Results:', results[1]);
 
-  const allPoetryAndSongs = [...poetry, ...songs];
-  // console.log(allPoetryAndSongs.length);
+  const allPoemsAndSongs = [...poems, ...songs];
+  // console.log(allPoemAndSongs.length);
 
   res.status(200).json({
     status: "success",
     results: totalCount,
     data: {
-      allPoetryAndSongs
+      allPoemsAndSongs,
     },
   });
-}
+};
 
-exports.getAllPoetry = async (req, res) => {
-  const features = new APIFeatures(Poetry.find(), req.query)
-      .filter()
-      .limitFields();
-  const totalCount = await Poetry.countDocuments(features.query);
-    
+exports.getAllPoems = async (req, res) => {
+  const features = new APIFeatures(Poem.find(), req.query)
+    .filter()
+    .limitFields();
+  const totalCount = await Poem.countDocuments(features.query);
+
   features.paginate();
   const finalData = await features.query;
 
@@ -65,15 +75,15 @@ exports.getAllPoetry = async (req, res) => {
     status: "success",
     results: totalCount,
     data: {
-      finalData
+      finalData,
     },
   });
-}
+};
 
 exports.getAllSongs = async (req, res) => {
   const features = new APIFeatures(Song.find(), req.query)
-      .filter()
-      .limitFields();
+    .filter()
+    .limitFields();
   const totalCount = await Song.countDocuments(features.query);
   // console.log(totalCount);
   features.paginate();
@@ -83,15 +93,15 @@ exports.getAllSongs = async (req, res) => {
     status: "success",
     results: totalCount,
     data: {
-      finalData
+      finalData,
     },
   });
-}
+};
 
 exports.getAllAuthors = async (req, res) => {
   const features = new APIFeatures(Author.find(), req.query)
-     .filter()
-     .limitFields();
+    .filter()
+    .limitFields();
   const totalCount = await Author.countDocuments(features.query);
   // console.log(totalCount);
   features.paginate();
@@ -101,9 +111,7 @@ exports.getAllAuthors = async (req, res) => {
     status: "success",
     results: totalCount,
     data: {
-      finalData
+      finalData,
     },
   });
-}
-
-
+};
