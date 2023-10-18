@@ -46,6 +46,9 @@ example:
 /poems?author=李白&fields=title,paragraphs&page=2
 
 ```
+```
+/authors?name=李清照
+```
 Default setting is 20 items on each page, except route / 40 items on each page.
 
 
