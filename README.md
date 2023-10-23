@@ -2,7 +2,7 @@
 
 This is a simple restful API that user can get and filter for Chinese ancient poems and songs.
 
-https://dolphin-app-h86ti.ondigitalocean.app/
+https://ancient-chinese-poetry-rpkdk.ondigitalocean.app/
 
 
 - database: __MongoDB__
@@ -48,11 +48,11 @@ get all authors
 ## Query strings can be used to filter the search results:
 
 ```
-GET https://dolphin-app-h86ti.ondigitalocean.app/poems?author=李白&fields=title,paragraphs&page=2
+GET https://ancient-chinese-poetry-rpkdk.ondigitalocean.app/poems?author=李白&fields=title,paragraphs&page=2
 
 ```
 ```
-GET https://dolphin-app-h86ti.ondigitalocean.app/authors?name=李清照
+GET https://ancient-chinese-poetry-rpkdk.ondigitalocean.app/authors?name=李清照
 ```
 Default setting is 20 items on each page, except route / 40 items on each page.
 
