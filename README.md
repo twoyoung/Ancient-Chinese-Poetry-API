@@ -1,6 +1,6 @@
 # Ancient-Chinese-Poetry-API
 
-This is a simple restful API that user can get and filter for Chinese ancient poems and songs.
+This is a simple restful API that user can get and filter for Chinese ancient poems and songs in JSON form.
 
 https://ancient-chinese-poetry-rpkdk.ondigitalocean.app/
 
@@ -48,11 +48,11 @@ get all authors
 ## Query strings can be used to filter the search results:
 
 ```
-GET https://ancient-chinese-poetry-rpkdk.ondigitalocean.app/poems?author=李白&fields=title,paragraphs&page=2
+https://ancient-chinese-poetry-rpkdk.ondigitalocean.app/poems?author=李白&fields=title,paragraphs&page=2
 
 ```
 ```
-GET https://ancient-chinese-poetry-rpkdk.ondigitalocean.app/authors?name=李清照
+https://ancient-chinese-poetry-rpkdk.ondigitalocean.app/authors?name=李清照
 ```
 Default setting is 20 items on each page, except route / 40 items on each page.
 
