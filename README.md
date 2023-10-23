@@ -58,7 +58,7 @@ https://ancient-chinese-poetry-rpkdk.ondigitalocean.app/poems?author=李白&fiel
 ```
 https://ancient-chinese-poetry-rpkdk.ondigitalocean.app/authors?name=李清照
 ```
-Default setting is 20 items on each page, except route / 40 items on each page.
+Default setting is 20 items on each page, except route / will return 40 items on each page.
 
 
 ## More functions in planning:
