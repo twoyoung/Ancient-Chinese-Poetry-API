@@ -24,30 +24,30 @@ Different models are created based on the gerne because poetries and songs as di
 - Author
 
 ## Available routes:
+get all the poetry and songs:
 ```
 GET /
 ```
-get all the poetry and songs 
+get a random poetry or song from database:
 
 ```
 GET /random
 ```
-get a random poetry or song from database
+get all poems:
 
 ```
 GET /poems
 ```
-get all poems
+get all songs:
 
 ```
 GET /songs
 ```
-get all songs
+get all authors:
 
 ```
 GET /authors
 ```
-get all authors
 
 ## Query strings can be used to filter the search results:
 
