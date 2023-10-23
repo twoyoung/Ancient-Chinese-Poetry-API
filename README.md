@@ -1,6 +1,6 @@
 # Ancient-Chinese-Poetry-API
 
-This is a simple restful API that user can get and filter for Chinese ancient poems and songs in JSON form.
+This is a simple API that user can get and filter for Chinese ancient poems and songs in JSON form.
 
 https://ancient-chinese-poetry-rpkdk.ondigitalocean.app/
 
