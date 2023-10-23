@@ -12,6 +12,10 @@ the database contains 14172 authors' 311881 ancient Chinese poems and 21595 song
 - technical stack: __Node.js__, __ExpressJS__, __Mongoose__
 - deployed on: __DigitalOcean__
 
+## Access limitation:
+
+There is a limitation of maximum 100 request within an hour from each IP address.
+
 ## A list of the models (collections):
 Different models are created based on the gerne because poetries and songs as different gernes have different structures.
 
@@ -55,6 +59,7 @@ https://ancient-chinese-poetry-rpkdk.ondigitalocean.app/poems?author=李白&fiel
 https://ancient-chinese-poetry-rpkdk.ondigitalocean.app/authors?name=李清照
 ```
 Default setting is 20 items on each page, except route / 40 items on each page.
+
 
 ## More functions in planning:
 - Error handling for production environment
