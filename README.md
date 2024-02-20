@@ -2,7 +2,7 @@
 
 This is a simple API that user can get and filter for Chinese ancient poems and songs in JSON form.
 
-https://ancient-chinese-poetry-rpkdk.ondigitalocean.app/
+https://chinese-poetry-api-hby28.ondigitalocean.app/
 
 
 - database: __MongoDB__
