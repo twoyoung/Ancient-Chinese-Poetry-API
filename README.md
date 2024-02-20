@@ -5,9 +5,7 @@ This is a simple API that user can get and filter for Chinese ancient poems and 
 https://chinese-poetry-api-hby28.ondigitalocean.app/
 
 
-- database: __MongoDB__
-
-the database contains 14172 authors' 311881 ancient Chinese poems and 21595 songs mainly during the period of Tang dynasty and Song dynasty.
+- database: __MongoDB__ (The database contains 14172 authors' 311881 ancient Chinese poems and 21595 songs mainly during the period of Tang dynasty and Song dynasty.)
 
 - technical stack: __Node.js__, __ExpressJS__, __Mongoose__
 - deployed on: __DigitalOcean__
